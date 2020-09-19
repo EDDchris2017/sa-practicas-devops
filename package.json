@@ -4,7 +4,8 @@
   "description": "Practicas de Dev Ops Software Avanzado Gulp",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha"
+    "test": "node_modules/.bin/mocha",
+    "test_sonar": "mocha --reporter mocha-sonarqube-reporter test --reporter-options output=xunit.xml"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,9 @@
   },
   "homepage": "https://github.com/EDDchris2017/sa-practicas-devops#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "mocha-sonar-generic-test-coverage": "0.0.6",
+    "mocha-sonarqube-reporter": "^1.0.2"
   },
   "dependencies": {
     "axios": "^0.20.0",

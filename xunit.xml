@@ -1,0 +1,7 @@
+<testExecutions version="1">
+<file path="test\app_test.js">
+<testCase name="Restaurante: Verificar que el servicio responda &apos;Restaurante Activo&apos;" duration="59"/>
+<testCase name="Restaurante: Comprobar recibo de pedido" duration="24"/>
+<testCase name="Restaurante: Comprobar monitoreo de pedido" duration="9"/>
+</file>
+</testExecutions>
