@@ -116,3 +116,5 @@ function avisarRepartidor(cliente,pedido)
             console.error(error)
         });
 }
+
+module.exports.app = app;
