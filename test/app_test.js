@@ -20,7 +20,7 @@ describe('Restaurante', function(){
             pedido: "Pizza Hawaina"
         })
         .expect(200, function(err, res) {
-            (res.body.res == "Que tal Christopher tu pedido se esta procesando ...").should.be.true
+            (res.body.res == "Que tal Christopher2 tu pedido se esta procesando ...").should.be.true
             done();
         });
     });
