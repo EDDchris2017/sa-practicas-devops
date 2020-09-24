@@ -9,7 +9,7 @@ pipeline{
         }
         stage('Armar artefactos'){
             steps{
-                bat 'gulp'
+                bat 'node_modules\.bin\gulp'
             }
         }
 
