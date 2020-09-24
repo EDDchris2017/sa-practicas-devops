@@ -7,7 +7,7 @@ pipeline{
                 bat 'npm install'
             }
         }
-        stage('Pruebas Unitarias MochaJS)
+        stage('Pruebas Unitarias MochaJS')
             steps{
                 bat 'npm run test'
             }
