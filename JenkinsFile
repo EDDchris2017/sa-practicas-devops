@@ -2,9 +2,14 @@ pipeline{
     agent any
      
     stages {
+        stage('Descarga de Librerias Node Modules'){
+            steps{
+                sh 'npm install'
+            }
+        }
         stage('Armar artefactos'){
             steps{
-                gulp
+                sh 'gulp'
             }
         }
 
