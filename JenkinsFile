@@ -4,12 +4,12 @@ pipeline{
     stages {
         stage('Descarga de Librerias Node Modules'){
             steps{
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Armar artefactos'){
             steps{
-                sh 'gulp'
+                bat 'gulp'
             }
         }
 
