@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+     
+    stages {
+        stage('Realizar pruebas Unitarias con MochaJS'){
+            steps{
+
+            }
+        }
+        stage('Reaizar pruebas de calidad de Codigo'){
+            steps{
+
+            }
+        }
+        stage('Armar artefactos'){
+            steps{
+                gulp
+            }
+        }
+
+    }
+}

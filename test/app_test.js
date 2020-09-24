@@ -3,6 +3,7 @@ const request =  require("supertest");
 const should = require('chai').should();
 const Restaurante = require("../src/Restaurante/RestauranteService").app;
 
+//https://www.npmjs.com/package/mocha-sonar-generic-test-coverage
 //Pruebas al Servicio de Restaurante
 describe('Restaurante', function(){
     it("Verificar que el servicio responda 'Restaurante Activo'", (done) => {
@@ -11,7 +12,7 @@ describe('Restaurante', function(){
             .expect('Restaurante activo')
             .end(done)
     });
-    it("Comprobar recibo de pedido", (done) =>{
+    it("Comprobar recibo de pedido , responda 'Que tal Christopher tu pedido se esta procesando ...'", (done) =>{
         request(Restaurante)
         .post('/recibirpedido')
         .send({
@@ -23,7 +24,7 @@ describe('Restaurante', function(){
             done();
         });
     });
-    it("Comprobar monitoreo de pedido", (done) =>{
+    it("Comprobar monitoreo de pedido, responda 'El pedido sigue en proceso'", (done) =>{
         request(Restaurante)
         .post('/informarestado')
         .expect(200, function(err,res){

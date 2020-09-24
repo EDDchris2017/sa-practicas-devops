@@ -1,14 +1,9 @@
 const { src, dest } = require('gulp');
 
 function defaultTask(cb) {
-    return src('src/*').pipe(dest('dist/'));
+    return src('src/**/*.js').pipe(dest('dist/'));
   }
 
-function clean(cb) {
-    // body omitted
-    cb();
-  }
-  
 
   function build(cb) {
     // body omitted
