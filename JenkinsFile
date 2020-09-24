@@ -7,6 +7,10 @@ pipeline{
                 bat 'npm install'
             }
         }
+        stage('Pruebas Unitarias MochaJS)
+            steps{
+                bat 'npm run test'
+            }
         stage('Armar artefactos'){
             steps{
                 bat 'node_modules\\.bin\\gulp'

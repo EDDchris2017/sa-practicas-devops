@@ -29,8 +29,15 @@ describe('Restaurante', function(){
         .post('/informarestado')
         .expect(200, function(err,res){
             (res.body.res == "El pedido sigue en proceso").should.be.true
+            // Terminar el servicio
             done()
         })
+    });
+    it("Salir del servicio", (done) =>{
+        request(Restaurante)
+        .get('/quit')
+        .end()
+        done();
     })
 });
 
