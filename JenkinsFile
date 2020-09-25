@@ -13,7 +13,9 @@ pipeline{
             }
         }
         stage('Revision de calidad de Codigo SonarQube'){
+            script{
                 scannerhome = tool 'sonarqube'
+            }
             steps{
                 withSonarQubeEnv('sonarqube') {
                     bat 'sonar-scanner'
