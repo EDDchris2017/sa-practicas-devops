@@ -14,13 +14,13 @@ pipeline{
         }
         stage('Revision de calidad de Codigo SonarQube'){
             environment {
-                scannerHome = tool 'SonarQube'
+                scannerHome = tool 'sonarqube'
             }
             steps {
-                withSonarQubeEnv('sonarqube') {
+                def withSonarQubeEnv('sonarqube') {
                     bat "sonar-scanner"
                 }
-                timeout(time: 10, unit: 'MINUTES') {
+                def timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }
