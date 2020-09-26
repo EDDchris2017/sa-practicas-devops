@@ -17,3 +17,4 @@ Creacion de carpeta dist para manejo de archivos release,
 como javascript es un lenguaje interpretado solo se copiaran los archivos \*.js
 - Carpeta Dist para ubicacion de archivos 
 - Se toman todos los archivos \*.js de la carpeta /src
+- LINK REPOSITORIO ARTEFACTOS: https://github.com/EDDchris2017/artefactos_practicassa
