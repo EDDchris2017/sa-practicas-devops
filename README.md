@@ -6,6 +6,7 @@
 #### Tags de Versionamiento
 - Version 1.0.0 Proyecto de Crowdsourcing al repositorio y manejo de artefactos
 - Version 1.0.1 Desarrollo de Pruebas unitarias con Mocha JS y calidad de codigo con SonarQube
+- Version 1.0.2 Desarrollo de Pipeline con JenkinsFile y repositorio de artefactos 
 ---------------------------------------
 ### Practica 5
 #### Descripcion del Proyecto
@@ -14,7 +15,7 @@
 Creacion de artefactos para el release de la plataforma 
 - Herramienta **GULP** para creacion de artefactos
 - Lenguaje: Javascript NodeJS 
-- 
+
 #### Creacion de Artefactos
 - Instruccion de creacion de artefactos en gulpfile.js
 - Comando para creacion de artefactos:
