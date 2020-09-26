@@ -40,7 +40,6 @@ app.post('/recibirpedido', function (request, res){
 
     res.send(recibirPedido(request.body.cliente,request.body.pedido))
 });
-
 app.post('/informarestado', function (request, res){
     console.log("--->"+ request.body.cliente +" solicito saber el estado de su pedido")
 
@@ -51,6 +50,11 @@ app.post('/finentrega', function (request, res){
     console.log("==== El repartidor dice que ya entrego el pedido , muy bien !!! ===")
     res.send(" === Gracias Repartidor !!! ===")
 });
+
+app.get('/quit',function(request,res){
+    console.log("Salir del servicio")
+    process.exit(0);
+})
 
 /**
  * Procesa pedidos de los cliente
@@ -116,3 +120,5 @@ function avisarRepartidor(cliente,pedido)
             console.error(error)
         });
 }
+
+module.exports.app = app;

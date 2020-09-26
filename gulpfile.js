@@ -1,21 +1,23 @@
-const { src, dest } = require('gulp');
+const { series,src, dest } = require('gulp');
+const execSync = require('child_process').execSync; 
 
 function defaultTask(cb) {
-    return src('src/*').pipe(dest('dist/'));
+    return src('src/**/*.js').pipe(dest('dist/'));
   }
 
-function clean(cb) {
-    // body omitted
-    cb();
-  }
-  
 
   function build(cb) {
-    // body omitted
-    return src('src/*.js')
+    // Copiar Archivos a Dist
+    return src('src/**/*.js')
         .pipe(dest('dist/'))
   }
+
+  function comprimirArchivos(cb){
+      // Comprimir archivos 
+      execSync('zip release_proyecto_201504100.zip dist');
+      return src('release_proyecto_201504100.zip')
+        .pipe(dest('dist/')) 
+  }
   
-exports.build = build;
 exports.default = defaultTask;
-//exports.default = series(clean, build);
+exports.default = series(build, comprimirArchivos);
