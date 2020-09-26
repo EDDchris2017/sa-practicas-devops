@@ -41,7 +41,82 @@ como javascript es un lenguaje interpretado solo se copiaran los archivos \*.js
         .pipe(dest('dist/')) 
   }
   ```
+---------------------------------------
+### Practica 6
+#### Descripcion del Proyecto
+- Version 1.0.1
+- Proyecto de Crowdsourcing para Comida a Domilicion usando una arquitectura orientada a microservicios
+Manejo de Pruebas Unitarias y Calidad de Codigo con SonarQube
+- Herramienta **Mocha JS** para pruebas unitarias
+- Herramienta **SonarQube** para evaluacion de calidad de codigo y Test Coverage
+- Lenguaje: Javascript NodeJS 
 
+#### Correr pruebas unitarias con MochaJS
+- Programacion de Pruebas unitarias en /test/app_test.js
+- Comando para correr pruebas:
+  - CMD[**""node_modules/.bin/mocha""**]
+- Comando para correr pruebas con script NPM
+  - CMD[**npm run test**]
+  
+#### Correr evaluacion de calidad de codigo con SonarQube
+- Definicion de propiedades de evaluacion en el archivo sonar-project.properties
+- Correr analisis con Sonar Scanner :
+  - CMD[**npm run test_sonar**]
+  
+#### Definicion de pruebas unitarias
+*Se realizon pruebas de los metodos web services del microservicio Restaurante*
+- Verificacion que el servicio este activo 
+  - Realizar un peticion get a la ruta "/" con la respuesta : **Restaurante activo**
+```javascript
+it("Verificar que el servicio responda 'Restaurante Activo'", (done) => {
+        request(Restaurante)
+            .get('/')
+            .expect('Restaurante activo')
+            .end(done)
+});
+```
+- Comprobar recibo de pedido del cliente al Restaurante
+  - Realizar un peticion get a la ruta "/recibirpedido" con la respuesta : **Que tal Christopher tu pedido se esta procesando ...**
+   - Parametros formato JSON
+    - Cliente: "Christopher"
+    - pedido : "Pizza Hawaina"
+```javascript
+it("Comprobar recibo de pedido , responda 'Que tal Christopher tu pedido se esta procesando ...'", (done) =>{
+        request(Restaurante)
+        .post('/recibirpedido')
+        .send({
+            cliente: "Christopher",
+            pedido: "Pizza Hawaina"
+        })
+        .expect(200, function(err, res) {
+            (res.body.res == "Que tal Christopher tu pedido se esta procesando ...").should.be.true
+            done();
+       });
+});
+```
+
+- Realizar peticion del estado del pedido
+  - Realizar un peticion get a la ruta "/informarestado" con la respuesta : **El pedido sigue en proceso ...**
+```javascript
+it("Comprobar monitoreo de pedido, responda 'El pedido sigue en proceso'", (done) =>{
+        request(Restaurante)
+        .post('/informarestado')
+        .expect(200, function(err,res){
+            (res.body.res == "El pedido sigue en proceso").should.be.true
+            // Terminar el servicio
+            done()
+        })
+});
+```
+#### Definicion de Propiedades de Calidad de Codigo
+SonarScanner para el cliente de analisis 
+```java
+sonar.projectKey=PracticaDevOpsSA
+sonar.projectName=PracticaDevOpsSA
+sonar.projectVersion=1
+sonar.sources=src/
+sonar.exclusions=src/*.css 
+```
 ---------------------------------------
 ### Practica 7
 #### Archivos Release
